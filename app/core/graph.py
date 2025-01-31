@@ -59,13 +59,13 @@ def build_workflow():
     Возвращаем объект graph для дальнейшего использования.
     """
     llm, tools = init_llm_and_tools()
-
+    print('llm')
     # Создаем узел вызова инструментов
     tool_node = ToolNode(tools)
-
+    print('ToolNode')
     # Создаем объект StateGraph
     workflow = StateGraph(MessagesState)
-
+    print('StateGraph')
     # Добавляем узлы
     # gather_data_node будет вызываться с дополнительным параметром llm
     def gather_data_node(state: MessagesState):
