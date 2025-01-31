@@ -34,5 +34,5 @@ def init_llm_and_tools():
     ).bind_tools(tools)
 
     print("Модель VseGPT успешно инициализирована!")
-
+    print(llm)
     return llm, tools
