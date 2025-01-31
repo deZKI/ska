@@ -22,7 +22,10 @@ def predict(user: UserRequest):
     input_messages = [HumanMessage(query)]
     print(2)
     # Запускаем граф
-    output = graph.invoke({"messages": input_messages})
+    try:
+        output = graph.invoke({"messages": input_messages}, request_timeout=1)
+    except Exception as e:
+        print(e)
     print(3)
     # Извлекаем результат
     messages = output["messages"]
