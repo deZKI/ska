@@ -23,8 +23,8 @@ def predict(user: UserRequest):
     print(2)
     # Запускаем граф
 
-    output = graph.invoke({"messages": input_messages}, request_timeout=1)
-    print(3)
+    output = graph.invoke({"messages": input_messages})
+    print(output)
     # Извлекаем результат
     messages = output["messages"]
     ai_response = messages[-1]  # последнее сообщение от AI
