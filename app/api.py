@@ -14,19 +14,14 @@ graph = build_workflow()
 
 @app.post('/api/request')
 def predict(user: UserRequest):
-    print(1)
     query = user.query
     user_id = user.id
 
     # Формируем входное сообщение
     input_messages = [HumanMessage(query)]
-    print(2)
     # Запускаем граф
-    try:
-        output = graph.invoke({"messages": input_messages}, request_timeout=1)
-    except Exception as e:
-        print(e)
-    print(3)
+    output = graph.invoke({"messages": input_messages})
+
     # Извлекаем результат
     messages = output["messages"]
     ai_response = messages[-1]  # последнее сообщение от AI
