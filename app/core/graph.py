@@ -78,7 +78,7 @@ def build_workflow():
     workflow.set_entry_point("gather_data_node")
     workflow.add_conditional_edges("gather_data_node", should_continue, ["tools", END])
     workflow.add_edge("tools", "gather_data_node")
-
+    print('123')
     # Компилируем граф
     graph = workflow.compile()
     return graph
