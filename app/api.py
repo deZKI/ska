@@ -13,7 +13,7 @@ graph = build_workflow()
 
 
 @app.post('/api/request')
-async def predict(user: UserRequest):
+def predict(user: UserRequest):
     query = user.query
     user_id = user.id
 
